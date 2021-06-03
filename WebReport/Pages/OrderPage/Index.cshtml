@@ -6,8 +6,11 @@
 <br />
 
 <div class="container row p-0 m-0">
-    <div class="col-9">
+    <div class="col-6">
         <h2 class="text-info text-black-50">Orders List</h2>
+    </div>
+    <div class="col-3">
+        <a class="btn btn-info form-control text-white" asp-page="/OrderPage/Report">Show reports</a>
     </div>
     <div class="col-3">
         <a class="btn btn-info form-control text-white" asp-page="/OrderPage/Create">Add new order</a>
@@ -38,7 +41,7 @@
                             </td>
                             <td style="text-align:center;">
                                 <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm w-25">Edit</a>
-                                <a asp-page="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm w-25">Delete</a>
+                                <button onclick="return confirm('Are you sure you want to delete?')" asp-route-id="@item.Id" asp-page-handler="Delete" class="btn btn-danger btn-sm w-25">Delete</button>
                             </td>
                         </tr>
                     }

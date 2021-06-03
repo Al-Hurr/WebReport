@@ -11,9 +11,13 @@ namespace WebReport.Models
         [Key]
         public int Id { get; set; }
 
+
+        [Display(Name = "Сумма")]
         [Required]
         public decimal? Amount { get; set; }
 
+
+        [Display(Name = "Дата")]
         [Required]
         [DataType(DataType.Date)]
         public DateTime OrderDate { get; set; }

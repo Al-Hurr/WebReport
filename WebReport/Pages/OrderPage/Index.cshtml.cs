@@ -24,5 +24,20 @@ namespace WebReport.Pages.OrderPage
         {
             Orders = await _context.Orders.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostDelete(int? id)
+        {
+            if (!id.HasValue)
+                return NotFound();
+
+            var order = await _context.Orders.FindAsync(id.Value);
+
+            if (order == null)
+                return NotFound();
+
+            _context.Orders.Remove(order);
+            await _context.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
     }
 }
